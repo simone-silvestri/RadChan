@@ -1,0 +1,52 @@
+      integer         i,j,k,imx,imax,jmax,kmax,imax_tot,jmax_tot,kmax_tot,i1,j1,k1
+      integer         px,p_col,p_row,rank,EOSmode,fDM,ratioI
+      integer         periodic,out2D,divchk,visbulk,radStep
+      integer         nstep,nInflowProf,K_start_heat,nTab,nInflow_sub,inflow_writei,nTemp
+      real*8          Re,Pr,Prq,Prr,Pl,Qwall,Gr_0,T_0,Beta_0,Fr_1,flow,LoD,LoY,fact_mesh,stefan
+      
+      parameter (p_row=12,p_col=48)             !!!USE p_col = n*p_row with n an integer!!! and always p_row = max_core_in_node
+      parameter (px =p_col*p_row)
+      parameter (imax_tot=406)
+      parameter (jmax_tot=576)
+      parameter (kmax_tot=2304)
+
+      parameter (imx               = (imax_tot+2)/p_row -1)
+      parameter (imax              =imax_tot)
+      parameter (jmax              =jmax_tot/p_row)
+      parameter (kmax              =kmax_tot/p_col)
+      parameter (i1                =imax+ 1)
+      parameter (j1                =jmax+ 1)
+      parameter (k1                =kmax+ 1)
+      parameter (nstep             =10000000)
+      parameter (radStep           =10)
+      parameter (nInflow_sub       =100)
+      parameter (ratioI            =100/nInflow_sub)
+      parameter (nInflowProf       =10000000)
+      parameter (LoD               =18.84955592153875)
+      parameter (LoY               =3.141592653589793)
+      parameter (periodic          =2)
+      parameter (fact_mesh         =1.6)
+   
+      parameter (K_start_heat      =50)
+      parameter (nTab              =2000)
+      parameter (nTemp             =52)
+
+      parameter (Re                =547.0)
+      parameter (Pr                =0.887)
+      parameter (Prq               =Pr) 
+      parameter (Prr               =Prq/Pr) 
+      parameter (Pl                =0.0057) 
+      parameter (T_0               =1000)
+      parameter (Beta_0            =0.0225)
+      parameter (stefan            =5.67e-08)
+
+      parameter (Qwall             =10.0) !2.4) 
+      parameter (Gr_0              =0.0)
+    
+      parameter (flow              =-0.)
+      parameter (EOSmode           =1)
+      parameter (fDM               =1)
+      
+      parameter (out2D             =1 )
+      parameter (divchk            =1 )
+      parameter (visbulk           =1 )

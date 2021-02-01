@@ -1,0 +1,27 @@
+      integer         istep,nsteps,isave,coordk(2)
+      common /intvar/ istep,nsteps,isave,coordk
+      save   /intvar/
+c     ****************
+      real*8          Ru(0:i1),Rp(0:i1),dr(0:i1),dphi,dz,Lmix(imax),z1(0:k1),z2(0:k1)
+      common /phsgrd/ Ru,Rp,dr,dphi,dz,Lmix,z1,z2
+      save   /phsgrd/
+c
+c     ****************
+      real*8          dt,dtmax,time
+      common /timvar/ dt,dtmax,time
+      save   /timvar/
+c
+c     ****************
+      real*8          U_bound(0:i1,jmax,nInflow_sub),V_bound(0:i1,jmax,nInflow_sub),W_bound(0:i1,jmax,nInflow_sub)
+      common /inlet/    U_bound,V_bound,W_bound
+      save   /inlet/
+c     ****************
+      real*8          tempTab(1:nTab),rhoTab(1:nTab),
+     1                muTab(1:nTab),lamTab(1:nTab),
+     1                cpTab(1:nTab),enthTab(1:nTab),lamocpTab(1:nTab),
+     1                temp2Tab(1:nTab),rho2Tab(1:nTab),
+     1                mu2Tab(1:nTab),lam2Tab(1:nTab),
+     1                cp2Tab(1:nTab),enth2Tab(1:nTab),lamocp2Tab(1:nTab)
+      common /table/  tempTab,rhoTab,muTab,lamTab,cpTab,enthTab,lamocpTab,
+     1                temp2Tab,rho2Tab,mu2Tab,lam2Tab,cp2Tab,enth2Tab,lamocp2Tab
+      save   /table/
